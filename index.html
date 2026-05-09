@@ -471,10 +471,10 @@ function formatDate(dateStr) {
 
     function parsePeriodKey(key){
       const map = {
-        '08.2026': ['01.08.2026', '31.08.2026'],
-        '07.2026': ['01.07.2026', '31.07.2026'],
-        '06.2026': ['01.06.2026', '30.06.2026'],
-        '05.2026': ['01.05.2026', '31.05.2026']
+        '2026-08': ['01.08.2026', '31.08.2026'],
+        '2026-07': ['01.07.2026', '31.07.2026'],
+        '2026-06': ['01.06.2026', '30.06.2026'],
+        '2026-05': ['01.05.2026', '31.05.2026']
       };
       return map[key] || ['—', '—'];
     }
@@ -495,7 +495,7 @@ function formatDate(dateStr) {
           <h4 class="incident-title">Awaria #${idx + 1}</h4>
           <div class="incident-meta">
   Aktywny incydent podczas:
-  ${escapeHtml(formatDate(item.when || item.createdAt || item.time || item.timestamp))}
+  ${escapeHtml(formatDate(item.date_start))} → ${escapeHtml(formatDate(item.date_end))}
 </div>
           <div class="incident-desc">${escapeHtml(item.desc || item.description || item.text || 'Brak opisu awarii.').replace(/\n/g, '<br>')}</div>
         </div>
